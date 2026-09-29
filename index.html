@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Campus Lost & Found</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h2>College Campus Lost & Found</h2>
+  <nav>
+    <a href="index.html">Report / Search</a>
+    <a href="admin.html">Admin / Authority</a>
+  </nav>
+</header>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('found')">Report Found Item</button>
+  <button class="tab" onclick="showTab('lost')">Report Lost Item</button>
+  <button class="tab" onclick="showTab('search')">Search & Match</button>
+</div>
+
+<!-- FOUND FORM -->
+<section id="foundTab" class="panel">
+  <h3>Report a Found Item</h3>
+  <form id="foundForm" class="form-grid">
+    <div>
+      <label>Item Name *</label>
+      <input id="fName" required placeholder="e.g. Water Bottle">
+    </div>
+    <div>
+      <label>Brand</label>
+      <input id="fBrand" placeholder="e.g. Milton">
+    </div>
+    <div>
+      <label>Color</label>
+      <input id="fColor" placeholder="e.g. Blue">
+    </div>
+    <div>
+      <label>Date Found *</label>
+      <input id="fDate" type="date" required>
+    </div>
+    <div>
+      <label>Location Found *</label>
+      <input id="fLocation" required placeholder="e.g. Library 2nd Floor">
+    </div>
+    <div>
+      <label>Handed Over To (Authority) *</label>
+      <input id="fAuthority" required placeholder="e.g. Security Office / Admin Block">
+    </div>
+    <div class="full">
+      <label>Description</label>
+      <textarea id="fDesc" rows="2" placeholder="Any identifying marks, size, etc."></textarea>
+    </div>
+    <div>
+      <label>Finder Name *</label>
+      <input id="fFinder" required>
+    </div>
+    <div>
+      <label>Contact</label>
+      <input id="fContact" placeholder="Phone / Email">
+    </div>
+    <div class="full">
+      <button type="submit">Submit Found Report</button>
+    </div>
+  </form>
+  <div id="foundSuccess" class="card success" style="display:none;"></div>
+</section>
+
+<!-- LOST FORM -->
+<section id="lostTab" class="panel" style="display:none;">
+  <h3>Report a Lost Item</h3>
+  <form id="lostForm" class="form-grid">
+    <div>
+      <label>Item Name *</label>
+      <input id="lName" required placeholder="e.g. Laptop Bag">
+    </div>
+    <div>
+      <label>Brand</label>
+      <input id="lBrand" placeholder="e.g. American Tourister">
+    </div>
+    <div>
+      <label>Color</label>
+      <input id="lColor" placeholder="e.g. Black">
+    </div>
+    <div>
+      <label>Date Last Seen *</label>
+      <input id="lDate" type="date" required>
+    </div>
+    <div>
+      <label>Last Seen Location *</label>
+      <input id="lLocation" required placeholder="e.g. Cafeteria">
+    </div>
+    <div>
+      <label>Owner Name *</label>
+      <input id="lOwner" required>
+    </div>
+    <div class="full">
+      <label>Description</label>
+      <textarea id="lDesc" rows="2" placeholder="Contents, stickers, unique features..."></textarea>
+    </div>
+    <div>
+      <label>Contact *</label>
+      <input id="lContact" required placeholder="Phone / Email">
+    </div>
+    <div class="full">
+      <button type="submit">Submit Lost Report</button>
+    </div>
+  </form>
+  <div id="lostSuccess" class="card success" style="display:none;"></div>
+</section>
+
+<!-- SEARCH -->
+<section id="searchTab" class="panel" style="display:none;">
+  <h3>Search Items</h3>
+  <div class="flex" style="gap:10px; margin-bottom:15px;">
+    <input id="searchQ" placeholder="Search by name, brand, color, location..." style="flex:1;">
+    <select id="searchType">
+      <option value="all">All</option>
+      <option value="FOUND">Found Only</option>
+      <option value="LOST">Lost Only</option>
+    </select>
+    <button onclick="doSearch()">Search</button>
+  </div>
+  <div id="searchResults" class="grid"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

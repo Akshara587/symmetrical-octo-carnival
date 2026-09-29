@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lost & Found - Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h2>Lost & Found – Authority Dashboard</h2>
+  <nav>
+    <a href="index.html">Report / Search</a>
+    <a href="admin.html">Admin / Authority</a>
+  </nav>
+</header>
+
+<div class="stats grid" id="stats"></div>
+
+<div class="card" style="margin-top:20px;">
+  <div class="flex">
+    <h3>All Reports</h3>
+    <div>
+      <select id="filterStatus" onchange="loadReports()">
+        <option value="">All Status</option>
+        <option value="Unclaimed">Unclaimed</option>
+        <option value="Claimed">Claimed</option>
+        <option value="Returned">Returned</option>
+        <option value="Open">Open (Lost)</option>
+        <option value="Matched">Matched</option>
+        <option value="Recovered">Recovered</option>
+      </select>
+      <button onclick="loadReports()">Refresh</button>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th><th>Type</th><th>Item</th><th>Brand / Color</th>
+        <th>Location</th><th>Date</th><th>Person</th><th>Status</th><th>Update</th>
+      </tr>
+    </thead>
+    <tbody id="reportsBody"></tbody>
+  </table>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
